@@ -1,0 +1,6 @@
+.idea/*
+out/*
+*.ser
+*.png
+*.iml
+*.uml
