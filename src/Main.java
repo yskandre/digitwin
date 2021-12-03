@@ -9,7 +9,10 @@ public class Main {
 
     public static void main(String[] args) {
         SmartHome smartHome = SmartHome.load();
-
+        if(args.length == 0){
+            System.out.println("To get started, type 'help'. Usage: help [add|remove|send|status|help|bulb|heater|speaker]");
+            return;
+        }
         switch (args[0].toLowerCase()) {
             case "add":
                 switch (args[1].toLowerCase()) {
@@ -50,6 +53,10 @@ public class Main {
                 System.out.println(smartHome.getStatus());
                 break;
             case "help":
+                if(args.length == 1) {
+                    System.out.println("Usage: help [add|remove|send|status|help|bulb|heater|speaker]");
+                    break;
+                }
                 switch (args[1]) {
                     case "add":
                         System.out.println("Add a room to the smart home.\n Usage: add [room] <roomID>\nAdd a device to a room.\n Usage: add [bulb|heater|speaker] <roomID> <deviceID>");
